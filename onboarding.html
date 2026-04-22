@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Страница первичной настройки обучения в Langlingo"
+    />
+    <title>Langlingo — настройка обучения</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img class="logo-img" src="./langlingo-logo.svg" alt="Langlingo" />
+      </div>
+    </header>
+
+    <main class="onboarding">
+      <h1 class="onboarding-title">Перед стартом выберите параметры обучения</h1>
+
+      <form class="onboarding-form" id="onboarding-form" action="#" method="get">
+        <section class="onboarding-card">
+          <h2>1) Ваш уровень языка</h2>
+          <label><input type="radio" name="level" value="beginner" /> Начинающий</label>
+          <label><input type="radio" name="level" value="elementary" /> Базовый</label>
+          <label><input type="radio" name="level" value="intermediate" /> Средний</label>
+          <label><input type="radio" name="level" value="advanced" /> Продвинутый</label>
+        </section>
+
+        <section class="onboarding-card">
+          <h2>2) Как часто хотите заниматься?</h2>
+          <label><input type="radio" name="frequency" value="daily" /> Каждый день</label>
+          <label><input type="radio" name="frequency" value="3x" /> 3 раза в неделю</label>
+          <label><input type="radio" name="frequency" value="weekend" /> По выходным</label>
+          <label><input type="radio" name="frequency" value="custom" /> Выберу позже</label>
+        </section>
+
+        <section class="onboarding-card">
+          <h2>3) Нужны ли уведомления?</h2>
+          <label><input type="radio" name="notify" value="yes" /> Да, напоминать мне</label>
+          <label><input type="radio" name="notify" value="no" /> Нет, без уведомлений</label>
+        </section>
+
+        <section class="onboarding-card">
+          <h2>4) Цель обучения</h2>
+          <label><input type="checkbox" name="goal" value="travel" /> Путешествия</label>
+          <label><input type="checkbox" name="goal" value="work" /> Работа/карьера</label>
+          <label><input type="checkbox" name="goal" value="study" /> Учеба</label>
+          <label><input type="checkbox" name="goal" value="self" /> Для себя</label>
+        </section>
+
+        <div class="onboarding-actions">
+          <a class="secondary-action" href="./index.html">Назад</a>
+          <button class="primary-action" type="submit">Продолжить</button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      const onboardingForm = document.getElementById("onboarding-form");
+
+      onboardingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const isRegistered = localStorage.getItem("langlingo_registered") === "1";
+        window.location.href = isRegistered ? "./login.html" : "./register.html";
+      });
+    </script>
+  </body>
+</html>

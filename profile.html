@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Профиль пользователя в Langlingo" />
+    <title>Langlingo - профиль</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="app-body">
+    <div class="app-layout">
+      <aside class="app-sidebar">
+        <div class="logo app-logo">
+          <img class="logo-img" src="./langlingo-logo.svg" alt="Langlingo" />
+        </div>
+
+        <nav class="app-nav" aria-label="Навигация кабинета">
+          <a class="app-nav-item" href="./app.html">Обучение</a>
+          <a class="app-nav-item" href="./training.html">Тренировка</a>
+          <a class="app-nav-item" href="./tasks.html">Задания</a>
+          <a class="app-nav-item active" href="./profile.html">Профиль</a>
+          <a class="app-nav-item" href="./settings.html">Настройки</a>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <h1 class="app-title">Профиль пользователя</h1>
+
+        <div class="profile-layout">
+          <section class="profile-card" aria-label="Основная информация профиля">
+            <div class="profile-avatar" id="profile-avatar">U</div>
+
+            <div>
+              <h2 class="profile-name" id="profile-name">Пользователь</h2>
+              <p class="profile-meta">
+                Почта: <span id="profile-email">user@example.com</span>
+              </p>
+              <p class="profile-meta">
+                Дата регистрации: <span id="profile-date">не указана</span>
+              </p>
+            </div>
+
+            <button
+              class="profile-edit-button"
+              id="profile-edit-button"
+              type="button"
+              aria-label="Редактировать профиль"
+              title="Редактировать профиль"
+            >
+              ✎
+            </button>
+          </section>
+
+          <section class="profile-section" aria-label="Статистика пользователя">
+            <h2>Статистика</h2>
+            <div class="profile-stats">
+              <article class="profile-stat">
+                <strong>4</strong>
+                <span>пройдено уроков</span>
+              </article>
+              <article class="profile-stat">
+                <strong>150</strong>
+                <span>очков опыта</span>
+              </article>
+              <article class="profile-stat">
+                <strong>3</strong>
+                <span>тренировки завершено</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="profile-section" aria-label="Редактирование профиля">
+            <h2>Изменить информацию</h2>
+
+            <form class="profile-form" id="profile-form" hidden>
+              <label class="profile-label">
+                Имя
+                <input id="profile-name-input" name="name" type="text" required />
+              </label>
+
+              <label class="profile-label">
+                Почта
+                <input id="profile-email-input" name="email" type="email" required />
+              </label>
+
+              <label class="profile-label">
+                Пароль
+                <input
+                  id="profile-password-input"
+                  name="password"
+                  type="password"
+                  minlength="6"
+                  required
+                />
+              </label>
+
+              <button class="primary-action" type="submit">Сохранить изменения</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const profileName = document.getElementById("profile-name");
+      const profileEmail = document.getElementById("profile-email");
+      const profileDate = document.getElementById("profile-date");
+      const profileAvatar = document.getElementById("profile-avatar");
+      const profileForm = document.getElementById("profile-form");
+      const editButton = document.getElementById("profile-edit-button");
+      const nameInput = document.getElementById("profile-name-input");
+      const emailInput = document.getElementById("profile-email-input");
+      const passwordInput = document.getElementById("profile-password-input");
+
+      function loadProfile() {
+        const savedName =
+          localStorage.getItem("langlingo_user_name") || "Пользователь";
+        const savedEmail =
+          localStorage.getItem("langlingo_user_email") || "user@example.com";
+        const savedDate =
+          localStorage.getItem("langlingo_registration_date") || "не указана";
+        const savedPassword =
+          localStorage.getItem("langlingo_user_password") || "";
+
+        profileName.textContent = savedName;
+        profileEmail.textContent = savedEmail;
+        profileDate.textContent = savedDate;
+        profileAvatar.textContent = savedName.charAt(0).toUpperCase();
+
+        nameInput.value = savedName;
+        emailInput.value = savedEmail;
+        passwordInput.value = savedPassword;
+      }
+
+      editButton.addEventListener("click", function () {
+        profileForm.hidden = !profileForm.hidden;
+      });
+
+      profileForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        localStorage.setItem("langlingo_user_name", nameInput.value);
+        localStorage.setItem("langlingo_user_email", emailInput.value);
+        localStorage.setItem("langlingo_user_password", passwordInput.value);
+        loadProfile();
+        profileForm.hidden = true;
+      });
+
+      loadProfile();
+    </script>
+  </body>
+</html>

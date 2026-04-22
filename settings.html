@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Настройки пользователя в Langlingo" />
+    <title>Langlingo - настройки</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="app-body">
+    <div class="app-layout">
+      <aside class="app-sidebar">
+        <div class="logo app-logo">
+          <img class="logo-img" src="./langlingo-logo.svg" alt="Langlingo" />
+        </div>
+
+        <nav class="app-nav" aria-label="Навигация кабинета">
+          <a class="app-nav-item" href="./app.html">Обучение</a>
+          <a class="app-nav-item" href="./training.html">Тренировка</a>
+          <a class="app-nav-item" href="./tasks.html">Задания</a>
+          <a class="app-nav-item" href="./profile.html">Профиль</a>
+          <a class="app-nav-item active" href="./settings.html">Настройки</a>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <h1 class="app-title">Настройки</h1>
+
+        <div class="settings-layout">
+          <section class="settings-section" aria-label="Учебный процесс">
+            <h2>Учебный процесс</h2>
+            <div class="settings-list">
+              <article class="settings-item">
+                <div>
+                  <strong>Уведомления</strong>
+                  <p>Вкл/выкл напоминания о ежедневной практике.</p>
+                </div>
+                <label class="settings-toggle">
+                  <input type="checkbox" checked />
+                  <span class="settings-slider" aria-hidden="true"></span>
+                  <span class="settings-state" aria-hidden="true"></span>
+                </label>
+              </article>
+
+              <article class="settings-item">
+                <div>
+                  <strong>Звук</strong>
+                  <p>Включение или отключение звуковых эффектов в заданиях.</p>
+                </div>
+                <label class="settings-toggle">
+                  <input type="checkbox" checked />
+                  <span class="settings-slider" aria-hidden="true"></span>
+                  <span class="settings-state" aria-hidden="true"></span>
+                </label>
+              </article>
+
+              <article class="settings-item">
+                <div>
+                  <strong>Подсказки</strong>
+                  <p>Вкл/выкл подсказки во время обучения и тренировок.</p>
+                </div>
+                <label class="settings-toggle">
+                  <input type="checkbox" checked />
+                  <span class="settings-slider" aria-hidden="true"></span>
+                  <span class="settings-state" aria-hidden="true"></span>
+                </label>
+              </article>
+            </div>
+          </section>
+
+          <section class="settings-section" aria-label="Аккаунт">
+            <h2>Аккаунт</h2>
+            <div class="settings-list">
+              <article class="settings-item">
+                <div>
+                  <strong>Профиль</strong>
+                  <p>Изменение персональной информации пользователя.</p>
+                </div>
+                <a class="settings-link" href="./profile.html">Открыть</a>
+              </article>
+
+              <article class="settings-item">
+                <div>
+                  <strong>Подписка</strong>
+                  <p>Управление текущим тарифом и доступными возможностями.</p>
+                </div>
+                <a class="settings-link" href="#">Открыть</a>
+              </article>
+
+              <article class="settings-item">
+                <div>
+                  <strong>Конфиденциальность</strong>
+                  <p>Настройки хранения и использования персональных данных.</p>
+                </div>
+                <a class="settings-link" href="#">Открыть</a>
+              </article>
+
+              <article class="settings-item">
+                <div>
+                  <strong>Справочный центр</strong>
+                  <p>Ответы на частые вопросы и помощь по работе с сервисом.</p>
+                </div>
+                <a class="settings-link" href="#">Открыть</a>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
